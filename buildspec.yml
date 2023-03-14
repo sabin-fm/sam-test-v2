@@ -8,7 +8,7 @@ phases:
       - sam build 
   post_build:
     commands:
-      - sam deploy --stack-name dev-v2 --config-env master
+      - sam deploy --stack-name sam-test-v2 --config-env master
 # artifacts:
 #   files:
 #     - packaged-template.yml
