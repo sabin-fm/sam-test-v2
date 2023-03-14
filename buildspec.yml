@@ -11,4 +11,4 @@ phases:
       - sam deploy --stack-name sam-test-v2 --config-env master
 # artifacts:
 #   files:
-#     - template.yml
+#     - template.yaml
