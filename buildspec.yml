@@ -8,7 +8,7 @@ phases:
       - sam build 
   post_build:
     commands:
-      - sam deploy --stack-name sam-test-v2 --config-env master
+      - sam deploy --template-file template.yaml --stack-name sam-test-v2-stack --config-env master --capabilities CAPABILITY_IAM
 # artifacts:
 #   files:
 #     - template.yaml
