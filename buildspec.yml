@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: latest
+  build:
+    commands:
+      - sam build 
+  post_build:
+    commands:
+      - sam deploy --stack-name dev-v2 --config-env master
+# artifacts:
+#   files:
+#     - packaged-template.yml
