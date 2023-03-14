@@ -5,7 +5,7 @@ phases:
       - sam build -t template.yml
   post_build:
     commands:
-       - sam package --template-file template.yml --s3-bucket sam-cli-artifacts-sks --output-template-file package.yaml
+      - sam package --template-file template.yml --s3-bucket sam-cli-artifacts-sks --output-template-file package.yaml
       # Deploy packaged SAM template
       - sam deploy --template-file package.yaml --stack-name sam-test-v2 --capabilities CAPABILITY_IAM
 #   files:
