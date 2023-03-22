@@ -1,16 +1,22 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
-      python: 3.10
+      python: 3.9
+    commands:
+      # Install the AWS CLI and SAM CLI
+      pip3 install awscli aws-sam-cli
       
   build:
     commands:
+      -  sam validate --template template.yaml
       - sam build -t template.yaml
   post_build:
     commands:
-      - sam package --template-file template.yaml --s3-bucket sam-cli-artifacts-sks --output-template-file package.yaml
+      - sam package --template-file template.yaml --s3-bucket sam-cli-dionysus-bucket --output-template-file package.yaml
       # Deploy packaged SAM template
       - sam deploy --template-file package.yaml --stack-name sam-test-v2 --capabilities CAPABILITY_IAM
-#   files:
-#     - template.yaml
+      
+# files:
+#   - template.yaml
